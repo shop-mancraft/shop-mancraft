@@ -21,6 +21,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~plugins/vue-tailwind'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -36,10 +37,18 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    {
+      src: '@nuxtjs/axios' // https://go.nuxtjs.dev/axios
+      // options: { alias: process.env.NAME }
+    },
+    {
+      src: '@nuxtjs/pwa' // https://go.nuxtjs.dev/pwa
+      // options: { alias: process.env.NAME }
+    },
+    {
+      src: 'cookie-universal-nuxt'
+      // options: { alias: process.env.NAME }
+    }
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
