@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-center my-4">
+  <div class="my-4">
     <div>
       <Logo />
       <h1 class="title mt-4">
