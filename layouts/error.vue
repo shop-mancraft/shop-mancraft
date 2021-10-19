@@ -30,7 +30,7 @@
 
       <div class="logo">
         <a
-          href="https://nuxtjs.org"
+          href="/"
           target="_blank"
           rel="noopener"
         >
@@ -43,41 +43,41 @@
 
 <script>
 export default {
-  name: "NuxtError",
+  name: 'NuxtError',
   props: {
     mainClass: {
       type: String,
-      default: "",
+      default: '',
       required: false
     },
     mainId: {
       type: String,
-      default: "",
+      default: '',
       required: false
     }
   },
-  head() {
+  head () {
     return {
-      title: "Error",
+      title: 'Error',
       meta: [
         {
-          name: "viewport",
+          name: 'viewport',
           content:
-            "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+            'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
         }
       ]
-    };
+    }
   },
   computed: {
-    statusCode() {
-      return (this.error && this.error.statusCode) || 500;
+    statusCode () {
+      return (this.error && this.error.statusCode) || 500
     },
-    message() {
-      return JSON.stringify(this.error);
+    message () {
+      return JSON.stringify(this.error)
       // return this.error.message || '<%= messages.client_error %>'
     }
   }
-};
+}
 </script>
 
 <style>
