@@ -38,6 +38,7 @@
         </a>
       </div>
     </div>
+    <vf-t-common-error />
   </div>
 </template>
 

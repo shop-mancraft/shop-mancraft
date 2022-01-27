@@ -1,3 +1,7 @@
+require('dotenv').config()
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const isDev = process.env.NODE_ENV === 'development'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -25,7 +29,9 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [
+    '~/components' // default level is 0
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -45,10 +51,8 @@ export default {
       src: '@nuxtjs/pwa' // https://go.nuxtjs.dev/pwa
       // options: { alias: process.env.NAME }
     },
-    {
-      src: 'cookie-universal-nuxt'
-      // options: { alias: process.env.NAME }
-    }
+    '@nuxtjs/dotenv',
+    'vuefront-nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -84,10 +88,33 @@ export default {
       cache: false,
       sourceMap: false,
       extractComments: false
-    }
+    },
+    babel: {
+      plugins: ['lodash', 'preval', ['@babel/plugin-proposal-private-methods', { loose: true }]]
+    },
+    transpile: ['@vuefront/checkout-app'],
+    extractCSS: !isDev,
+    corejs: 2,
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        automaticNameDelimiter: '.',
+        name: 'test',
+        maxSize: 256000,
+        minSize: 50000
+      }
+    },
+    plugins: [
+      new LodashModuleReplacementPlugin({
+        shorthands: true
+      })
+    ]
   },
 
   generate: {
-    dir: 'public'
+    dir: 'public',
+    concurrency: 5,
+    subFolders: false,
+    crawler: true
   }
 }

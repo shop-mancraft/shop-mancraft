@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  name: 'Default',
   head: {},
   mounted () {
     const gdprCookie = this.$cookies.get('gdpr')
@@ -26,3 +27,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>
