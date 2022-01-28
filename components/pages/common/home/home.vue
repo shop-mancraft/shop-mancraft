@@ -5,7 +5,7 @@
 </template>
 <graphql>
 {
-	home {
+  home {
     meta {
       title
       description
@@ -19,7 +19,7 @@ import { mapGetters } from 'vuex'
 export default {
   // eslint-disable-next-line vue/component-definition-name-casing
   name: 'pCommonHome',
-  asyncData (ctx) {
+  asyncData () {
     return {
       loaded: !process.client
     }

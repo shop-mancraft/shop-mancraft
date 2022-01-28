@@ -1,4 +1,5 @@
 require('dotenv').config()
+// eslint-disable-next-line nuxt/no-cjs-in-config
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 
